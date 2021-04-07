@@ -1,30 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 
 const App = () => {
-	const [nombre, setNombre] = useState("Juan");
-	const [estado, setEstado] = useState(false)
 
-	useEffect(() => {
-		console.log('Yo solo me ejecuto en el montaje') //ComponentDidMount
-	}, []);
+	const [estado, setEstado] = useState(null)
 
-	useEffect(() => {
-		console.log('Yo solo me ejecuto en el montaje o cuando nombre se actualiza') //ComponentDidMount y ComponentDidUpdate
-	}, [nombre]);
-
-	useEffect(() => {
-		console.log('Yo me ejecuto en el montaje y siempre') // ComponentDidMount y Siempre
-	}, );
-
-	const handleName = e => {
-		setNombre(e.target.value);
-	};
+	useEffect(()=>{
+		fetch('https://swapi.dev/api/people/1/')
+		.then(response => response.json())
+		.then(data => {
+			console.log(data)
+			setEstado(data)
+		})
+		.catch(error => console.log(error))
+	},[])
 
 	return (
 		<div>
-			<h1>Hola mi nombre es {nombre} y el estado es: {estado?"Verdadero":"Falso"}</h1>
-			<input onChange={handleName} />
-			<button onClick={()=> setEstado(prevState => !prevState)}>Cambiar estado</button>
+			<h1>Hola Mundo, mi nombre es {!!estado? estado.name : '...cargando'}</h1>
+			<h1>Hola Mundo, mi nombre es {!!estado? estado.name : '...cargando'}</h1>
 		</div>
 	);
 };
