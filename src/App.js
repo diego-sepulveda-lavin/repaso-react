@@ -1,8 +1,8 @@
 import React from "react";
-import Padre from "./components/Padre"
+import Padre from "./components/Padre";
 
 function App() {
-	return <Padre />
+	return <Padre />;
 }
 
 export default App;

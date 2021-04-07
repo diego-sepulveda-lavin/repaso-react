@@ -13,23 +13,26 @@ const Padre = () => {
 		}
 	};
 
+	const [animo, setAnimo] = useState("Feliz");
 
-    const [animo, setAnimo] = useState("Feliz")
-
-    const handleAnimo = () => {
-        if (animo === "Feliz"){
-            setAnimo("Enojado")
-        } else if(animo === "Enojado"){
-            setAnimo("Feliz")
-        }
-    }
+	const handleAnimo = () => {
+		if (animo === "Feliz") {
+			setAnimo("Enojado");
+		} else if (animo === "Enojado") {
+			setAnimo("Feliz");
+		}
+	};
 
 	return (
 		<div>
 			<h1>Soy el componente Padre y tengo los ojos {colorOjos}</h1>
 			<button onClick={handleColorOjos}>Cambiar color</button>
-			<Hijo caracteristica={colorOjos} animo={animo} handleAnimo={handleAnimo}/>
-            <Hermano animo={animo}/>
+			<Hijo
+				caracteristica={colorOjos}
+				animo={animo}
+				handleAnimo={handleAnimo}
+			/>
+			<Hermano animo={animo} />
 		</div>
 	);
 };
