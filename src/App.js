@@ -17,7 +17,6 @@ const App = () => {
 	return (
 		<div>
 			<h1>Hola Mundo, mi nombre es {!!estado? estado.name : '...cargando'}</h1>
-			<h1>Hola Mundo, mi nombre es {!!estado? estado.name : '...cargando'}</h1>
 		</div>
 	);
 };
